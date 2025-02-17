@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMeter Test Plan</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h2>JMeter Test Plan</h2>
+    <pre>
+        &lt;jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3"&gt;
+            &lt;hashTree&gt;
+                &lt;TestPlan testname="Test Plan"&gt;
+                    &lt;elementProp name="TestPlan.user_defined_variables"&gt;
+                        &lt;collectionProp name="Arguments.arguments"/&gt;
+                    &lt;/elementProp&gt;
+                &lt;/TestPlan&gt;
+                &lt;hashTree&gt;
+                    &lt;ThreadGroup testname="Thread Group"&gt;
+                        &lt;intProp name="ThreadGroup.num_threads"&gt;20&lt;/intProp&gt;
+                        &lt;intProp name="ThreadGroup.ramp_time"&gt;10&lt;/intProp&gt;
+                        &lt;stringProp name="ThreadGroup.on_sample_error"&gt;continue&lt;/stringProp&gt;
+                        &lt;elementProp name="ThreadGroup.main_controller"&gt;
+                            &lt;stringProp name="LoopController.loops"&gt;1&lt;/stringProp&gt;
+                        &lt;/elementProp&gt;
+                    &lt;/ThreadGroup&gt;
+                    &lt;hashTree&gt;
+                        &lt;HTTPSamplerProxy testname="HTTP Request 1"&gt;
+                            &lt;stringProp name="HTTPSampler.domain"&gt;www.google.com&lt;/stringProp&gt;
+                            &lt;stringProp name="HTTPSampler.protocol"&gt;https&lt;/stringProp&gt;
+                            &lt;stringProp name="HTTPSampler.path"&gt;/&lt;/stringProp&gt;
+                            &lt;boolProp name="HTTPSampler.follow_redirects"&gt;true&lt;/boolProp&gt;
+                            &lt;stringProp name="HTTPSampler.method"&gt;GET&lt;/stringProp&gt;
+                        &lt;/HTTPSamplerProxy&gt;
+                    &lt;/hashTree&gt;
+                &lt;/hashTree&gt;
+            &lt;/hashTree&gt;
+        &lt;/jmeterTestPlan&gt;
+    </pre>
+</body>
+</html>
